@@ -125,9 +125,11 @@ void sortList(Nodo ** list) {
 	int * vect = listToArray(list[0]);
 	int dim = size(list[0]);
 	int i;
+
 	SelectionSort(vect, dim, ascending);
 	free(list);
 	list = crea();
+
 	for (i = 0; i < dim; i++) {
 		addLast(vect[i], list[1]);
 	}
