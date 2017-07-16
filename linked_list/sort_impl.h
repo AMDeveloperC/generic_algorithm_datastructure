@@ -40,6 +40,21 @@ void BubbleSort(int * work, const int size, int (* compare)(const void * a, cons
 	}
 }
 
+/* Implements Insertion Sort */
+void InsertionSort(int * work, const int size, int (* compare)(const void * a, const void * b)) {
+	int j, i, k;
+	for (j = 1; j < size; j++) {
+		k = work[k];
+		// inserimento ordinato di work[j] nell'insieme work[0, ... j -1]
+		i = j - 1;
+		while (i > 0 && work[i] > k) {
+			work[i + 1] = work[i];
+			i = i - 1;
+		}
+		A[i + 1] = k;
+	}
+}
+
 
 /* This couple of function is useful to set up the sorting */
 static int descending(const void * a, const void * b) {
