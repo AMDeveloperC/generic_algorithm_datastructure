@@ -1,16 +1,16 @@
+# include <stdlib.h>
 # define SIZE 1024
-
 
 typedef enum boolean{false, true} boolean;
 
 typedef struct nodo {
-	int val;
-	struct nodo * next;
-	struct nodo * prev;
+    int val;
+    struct nodo * next;
+    struct nodo * prev;
 } Nodo;
 
 /* Create a new empty list */
-Nodo ** crea();
+Nodo ** create();
 
 /* Add the element at first position of the list */
 Nodo * addFirst(int, Nodo *);

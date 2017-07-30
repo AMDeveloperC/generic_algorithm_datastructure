@@ -1,65 +1,64 @@
 # include "sorting.h"
 
-
-/* Swap the content of elem1 and elem2 variables */
+/* swap the content of elem1 and elem2 variables */
 static void swap(int * elem1, int * elem2) {
-	int hold;
+    int hold;
 
-	hold = * elem1;
-	* elem1 = * elem2;
-	* elem2 = hold;
+    hold = * elem1;
+    * elem1 = * elem2;
+    * elem2 = hold;
 }
 
+/* selection sort implementation */
+void selection_sort(int * work, const int size, int (* compare)(const void * a, const void * b)) {
+    int index;
+    int i, j;
 
-/* Implements Selection Sort */
-void SelectionSort(int * work, const int size, int (* compare)(const void * a, const void * b)) {
-	int index;
-	int i, j;
-
-	for (i = 0; i < size; i++) {
-		index = i;
-		for (j =i + 1; j < size; j++) {
-			if((*compare)(&work[index], &work[j]) > 0)
-				index = j;
-		}
-		swap(&work[i], &work[index]);
-	}
+    for (i = 0; i < size; i++) {
+        index = i;
+        for (j =i + 1; j < size; j++) {
+            if((*compare)(&work[index], &work[j]) > 0)
+                index = j;
+        }
+        swap(&work[i], &work[index]);
+    }
 }
 
+/* buble sort implementation */
+void bubble_sort(int * work, const int size, int (* compare)(const void * a, const void * b)) {
+    int i;
+    int j;
 
-/* Implements Buble Sort */
-void BubbleSort(int * work, const int size, int (* compare)(const void * a, const void * b)) {
-	int i;
-	int j;
-
-	for(i = 1; i < size; i++) {
-		for(j = 0; j < size - 1; j++) {
-			if((*compare)(&work[j], &work[j + 1]) > 0)
-				swap(&work[j], &work[j + 1]);
-		}
-	}
+    for(i = 1; i < size; i++) {
+        for(j = 0; j < size - 1; j++) {
+            if((*compare)(&work[j], &work[j + 1]) > 0)
+                swap(&work[j], &work[j + 1]);
+        }
+    }
 }
 
-/* Implements Insertion Sort */
-void InsertionSort(int * work, const int size, int (* compare)(const void * a, const void * b)) {
-	int j, i, k;
-	for (j = 1; j < size; j++) {
-		k = work[k];
-		// inserimento ordinato di work[j] nell'insieme work[0, ... j -1]
-		i = j - 1;
-		while (i > 0 && work[i] > k) {
-			work[i + 1] = work[i];
-			i = i - 1;
-		}
-		A[i + 1] = k;
-	}
+/* oredered insert for insertion sort implementation */
+static void ordered_insertion(int * work, int k, int v, int (* compare)(const void * a, const void * b)) {
+    k--;
+    while (k >= 0 && (* compare)(&work[k], &v) > 0) {
+        work[k+1] = work[k];
+        k--;
+    }
+    work[k+1] = v;
 }
 
+/* insertion sort implementation */
+void insertion_sort(int * work, const int size, int (* compare)(const void * a, const void * b)) {
+    int i;
+    for (i = 1; i < size; i++) {
+        ordered_insertion(work, i, work[i], compare);
+    }
+}
 
-/* This couple of function is useful to set up the sorting */
+/* compare function to states the ordering */
 static int descending(const void * a, const void * b) {
-	return (* (int *)b - * (int *)a);
+    return (* (int *)b - * (int *)a);
 }
 static int ascending(const void * a, const void * b) {
-	return (* (int *)a - * (int *)b);
+    return (* (int *)a - * (int *)b);
 }

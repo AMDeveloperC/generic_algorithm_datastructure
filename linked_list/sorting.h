@@ -1,8 +1,8 @@
 /* Bubble Sort algorithm */
-void BubbleSort(int * work, const int size, int (* compare)(const void * a, const void * b));
+void bubble_sort(int * work, const int size, int (* compare)(const void * a, const void * b));
 
 /* Selection Sort algorithm */
-void SelectionSort(int * work, const int size, int (* compare)(const void * a, const void * b));
+void selection_sort(int * work, const int size, int (* compare)(const void * a, const void * b));
 
 /* Insertion Sort algorithm */
-void InsertionSort(int * work, const int size, int (* compare)(const void * a, const void * b));
+void insertion_sort(int * work, const int size, int (* compare)(const void * a, const void * b));
