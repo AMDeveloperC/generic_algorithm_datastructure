@@ -1,12 +1,11 @@
 # define SIZE 1024
 
-
 typedef enum boolean{false, true} boolean;
 
 typedef struct node {
-	int val;
-	struct node * next;
-	struct node * prev;
+    int val;
+    struct node * next;
+    struct node * prev;
 } Node;
 
 /* Create a new empty list */

@@ -44,7 +44,7 @@ static void ordered_insertion(int * work, int k, int v, int (* compare)(const vo
         work[k+1] = work[k];
         k--;
     }
-    work[k+1] = v;
+    work[k + 1] = v;
 }
 
 /* insertion sort implementation */
