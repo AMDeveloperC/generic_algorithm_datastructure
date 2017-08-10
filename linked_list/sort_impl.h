@@ -37,7 +37,7 @@ void bubble_sort(int * work, const int size, int (* compare)(const void * a, con
     }
 }
 
-/* oredered insert for insertion sort implementation */
+/* oredered insertion for insertion sort implementation */
 static void ordered_insertion(int * work, int k, int v, int (* compare)(const void * a, const void * b)) {
     k--;
     while (k >= 0 && (* compare)(&work[k], &v) > 0) {
@@ -50,12 +50,16 @@ static void ordered_insertion(int * work, int k, int v, int (* compare)(const vo
 /* insertion sort implementation */
 void insertion_sort(int * work, const int size, int (* compare)(const void * a, const void * b)) {
     int i;
-    for (i = 1; i < size; i++) {
+    for (i = 1; i < size; i++)
         ordered_insertion(work, i, work[i], compare);
-    }
 }
 
-/* compare function to states the ordering */
+/* counting Sort algorithm */
+void counting_sort(int * work, const int size, int (* compare)(const void * a, const void * b)) {
+    return;
+}
+
+/* compare function to states the ordering thoward */
 static int descending(const void * a, const void * b) {
     return (* (int *)b - * (int *)a);
 }
