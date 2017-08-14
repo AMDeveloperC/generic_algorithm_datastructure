@@ -48,7 +48,7 @@ void * pop(stack * st) {
 void * top(stack * st) {
     if (isEmpty(st)) {
         fprintf(stderr, "Stack empty\n");
-        	return NULL;
+            return NULL;
     }
     return st -> s[st -> top];
 }
