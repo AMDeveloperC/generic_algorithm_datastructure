@@ -54,9 +54,8 @@ void insertion_sort(int * work, const int size, int (* compare)(const void * a, 
         ordered_insertion(work, i, work[i], compare);
 }
 
-/* counting Sort algorithm */
+/* counting sort algorithm */
 void counting_sort(int * work, const int size, int (* compare)(const void * a, const void * b)) {
-    return;
 }
 
 /* compare function to states the ordering thoward */
