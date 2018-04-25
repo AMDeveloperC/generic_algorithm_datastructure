@@ -1,7 +1,10 @@
 # define EMPTY 0
 # define FULL 100000
 
-typedef enum boolean{false, true} boolean;
+typedef enum boolean{
+    false,
+    true
+} boolean;
 
 typedef struct element {
     char d;
